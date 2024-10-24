@@ -1,0 +1,10 @@
+.aboutBlock {
+  margin-bottom: 30px;
+}
+
+.aboutText {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 14px;
+}

@@ -1,0 +1,32 @@
+.addNewPostBlock {
+  margin-bottom: 30px;
+}
+
+.addNewPostForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 30px;
+}
+
+.form__input,
+.textInput {
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(239, 239, 239);
+  border: none;
+  width: 90%;
+  display: block;
+}
+
+.formBtn {
+  width: 100px;
+  padding: 10px;
+  background-color: #E73B37;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
