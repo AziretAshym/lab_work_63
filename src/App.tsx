@@ -5,15 +5,18 @@ import Footer from './Containers/Footer/Footer.tsx';
 import About from './Containers/About/About.tsx';
 import Home from './Containers/Home/Home.tsx';
 import AddNewPost from './Containers/AddNewPost/AddNewPost.tsx';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
     <>
       <Header />
-      <Home />
-      <AddNewPost />
-      <About />
-      <Contacts />
+      <Routes>
+        <Route path="/" element={(<Home/>)}></Route>
+        <Route path="new-post" element={(<AddNewPost/>)}></Route>
+        <Route path="about" element={(<About/>)}></Route>
+        <Route path="contacts" element={(<Contacts/>)}></Route>
+      </Routes>
       <Footer />
     </>
   );

@@ -12,9 +12,17 @@
 
 .onePost {
   border: 1px solid #E73B37;
-  padding: 14px 23px;
   border-radius: 13px;
   margin-bottom: 14px;
+}
+
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  background: #E73B37;
+  padding: 15px 25px;
+  border-radius: 10px 10px 0 0 ;
+  color: #fff;
 }
 
 .postDate {
@@ -23,8 +31,8 @@
   font-size: 14px;
 }
 
-.postDate strong {
-  color: #E73B37;
+.postBody {
+  padding: 15px 25px;
 }
 
 .postText {
@@ -32,6 +40,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  margin: 0 0 15px ;
 }
 
 .postText img {
@@ -45,5 +54,25 @@
   border: none;
   border-radius: 5px;
   font-size: 10px;
-  cursor: pointer;}
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.postBtnsContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+
+.additionalPostBtns {
+  border: 1px solid #E73B37;
+  border-radius: 7px;
+  background: none;
+  cursor: pointer;
+
+}
+
+.additionalPostImgs {
+  width: 20px;
+}
 
