@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import './PostForm.css';
-import { IPostForm } from '../../types';
+import React, { useEffect, useState } from "react";
+import "./PostForm.css";
+import { IPostForm } from "../../types";
 
 const initialForm = {
-  title: '',
-  text: '',
+  title: "",
+  text: "",
   datetime: new Date(),
 };
 
@@ -13,41 +13,43 @@ interface Props {
   submitForm: (post: IPostForm) => void;
 }
 
-const PostForm: React.FC<Props> = ({postToEdit, submitForm}) => {
-  const [post, setPost] = useState<IPostForm>({...initialForm});
+const PostForm: React.FC<Props> = ({ postToEdit, submitForm }) => {
+  const [post, setPost] = useState<IPostForm>({ ...initialForm });
 
   useEffect(() => {
     if (postToEdit) {
-      setPost(prevState => ({
+      setPost((prevState) => ({
         ...prevState,
         ...postToEdit,
-      }))
+      }));
     }
   }, [postToEdit]);
 
-  const onChangeField = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {name, value} = e.target;
+  const onChangeField = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
 
-    setPost(prevState => ({
+    setPost((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const onFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    submitForm({...post});
+    submitForm({ ...post });
 
     if (!postToEdit) {
-      setPost({...initialForm});
+      setPost({ ...initialForm });
     }
   };
 
   return (
     <div className="addNewPostBlock">
       <div className="container">
-        <h2>{postToEdit ? 'Edit post' : 'Add new post'}</h2>
+        <h2>{postToEdit ? "Edit post" : "Add new post"}</h2>
         <form className="addNewPostForm" onSubmit={onFormSubmit}>
           <input
             type="text"
@@ -67,7 +69,9 @@ const PostForm: React.FC<Props> = ({postToEdit, submitForm}) => {
             placeholder="Enter the text of the post"
             onChange={onChangeField}
           ></textarea>
-          <button className="formBtn" type="submit">{postToEdit ? 'Edit' : 'Add new post'}</button>
+          <button className="formBtn" type="submit">
+            {postToEdit ? "Edit" : "Add new post"}
+          </button>
         </form>
       </div>
     </div>

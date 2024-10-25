@@ -13,4 +13,3 @@ export interface IPost {
 export interface IPostAPI {
   [id: string]: IPost;
 }
-

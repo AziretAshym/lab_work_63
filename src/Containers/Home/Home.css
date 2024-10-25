@@ -9,7 +9,7 @@
 }
 
 .onePost {
-  border: 1px solid #E73B37;
+  border: 1px solid #e73b37;
   border-radius: 13px;
   margin-bottom: 14px;
   display: flex;
@@ -19,9 +19,10 @@
 .postHeader {
   display: flex;
   justify-content: space-between;
-  background: #E73B37;
+  align-items: center;
+  background: #e73b37;
   padding: 15px 25px;
-  border-radius: 10px 10px 0 0 ;
+  border-radius: 10px 10px 0 0;
   color: #fff;
 }
 
@@ -43,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 15px ;
+  margin: 0 0 15px;
 }
 
 .postText img {
@@ -52,13 +53,19 @@
 
 .postBtn {
   padding: 5px 15px;
-  background-color: #E73B37;
+  background-color: #e73b37;
   color: #fff;
   border: none;
   border-radius: 5px;
   font-size: 10px;
   cursor: pointer;
   margin-right: 10px;
+  text-decoration: none;
+  &:hover {
+    transition: 0.3s;
+    background: #ff0000;
+    text-decoration: underline;
+  }
 }
 
 .postBtnsContainer {
@@ -83,4 +90,3 @@
 .additionalPostImgs {
   width: 20px;
 }
-
