@@ -19,7 +19,7 @@ const Contacts = () => {
               </p>
               <p>
                 <img src="https://www.svgrepo.com/show/530587/mail.svg" alt="email" className='contactImg'/>
-                <strong>Email:</strong> contact@travelulu.com
+                <strong>Email:</strong> contact@lampapp.com
               </p>
               <p>
                 <img src="https://www.svgrepo.com/show/530576/calendar.svg" alt="date" className='contactImg'/>

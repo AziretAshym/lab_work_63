@@ -1,17 +1,29 @@
-import React, { FormEvent, useState } from 'react';
-import './AddNewPost.css';
+import React, { useEffect, useState } from 'react';
+import './PostForm.css';
 import { IPostForm } from '../../types';
-import { name } from 'axios';
-import AxiosAPI from '../../AxiosAPI.ts';
 
 const initialForm = {
   title: '',
   text: '',
   datetime: new Date(),
+};
+
+interface Props {
+  postToEdit?: IPostForm;
+  submitForm: (post: IPostForm) => void;
 }
 
-const AddNewPost = () => {
+const PostForm: React.FC<Props> = ({postToEdit, submitForm}) => {
   const [post, setPost] = useState<IPostForm>({...initialForm});
+
+  useEffect(() => {
+    if (postToEdit) {
+      setPost(prevState => ({
+        ...prevState,
+        ...postToEdit,
+      }))
+    }
+  }, [postToEdit]);
 
   const onChangeField = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target;
@@ -25,17 +37,17 @@ const AddNewPost = () => {
   const onFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await AxiosAPI.post('posts.json', {...post});
+    submitForm({...post});
 
-    console.log(post);
-
-    setPost({...initialForm});
+    if (!postToEdit) {
+      setPost({...initialForm});
+    }
   };
 
   return (
     <div className="addNewPostBlock">
       <div className="container">
-        <h2>Add new post</h2>
+        <h2>{postToEdit ? 'Edit post' : 'Add new post'}</h2>
         <form className="addNewPostForm" onSubmit={onFormSubmit}>
           <input
             type="text"
@@ -55,11 +67,11 @@ const AddNewPost = () => {
             placeholder="Enter the text of the post"
             onChange={onChangeField}
           ></textarea>
-          <button className="formBtn" type="submit">Create</button>
+          <button className="formBtn" type="submit">{postToEdit ? 'Edit' : 'Add new post'}</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default AddNewPost;
+export default PostForm;

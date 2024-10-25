@@ -21,9 +21,15 @@
   display: block;
 }
 
+.textInput {
+  height: 9rem;
+}
+
 .formBtn {
   width: 150px;
-  padding: 15px 35px;
+  text-decoration: none;
+  padding: 15px 26px;
+  text-align: center;
   font-size: 16px;
   background-color: #E73B37;
   color: #fff;
